@@ -42,29 +42,29 @@ Repository for the KDSH project.
 ## DAY 2: BDH Adaptation for Text ⏳ PENDING
 
 ### Morning: TextPath Model Creation (09:00-13:00)
-- [ ] Create src/models/textpath.py
-- [ ] Modify BDH to accept variable-length sequences
-- [ ] Implement causal masking for autoregressive prediction
-- [ ] Add state extraction/injection methods
-- [ ] Test forward pass on tokenized text
-- [ ] Verify internal neuron sparsity (~5%)
+- [x] Create src/models/textpath.py
+- [x] Modify BDH to accept variable-length sequences
+- [x] Implement causal masking for autoregressive prediction
+- [x] Add state extraction/injection methods
+- [x] Test forward pass on tokenized text
+- [x] Verify internal neuron sparsity (~5%)
 
 ### Afternoon: Unsupervised Pre-training (13:00-18:00)
-- [ ] Create training script (pretrain_textpath.py)
-- [ ] Load novels via Pathway
-- [ ] Tokenize with custom tokenizer
-- [ ] Implement next-token prediction loss
-- [ ] Train on The Count of Monte Cristo (Epoch 1)
-- [ ] Train on In Search of the Castaways (Epoch 1)
-- [ ] Save checkpoint: models/textpath_pretrained.pt
-- [ ] Monitor: loss, sparsity, memory usage
+- [x] Create training script (pretrain_textpath.py)
+- [x] Load novels via Pathway
+- [x] Tokenize with custom tokenizer
+- [x] Implement next-token prediction loss
+- [x] Train on The Count of Monte Cristo (Epoch 1)
+- [x] Train on In Search of the Castaways (Epoch 1)
+- [x] Save checkpoint: models/textpath_pretrained.pt
+- [x] Monitor: loss, sparsity, memory usage
 
 ### Evening: Validation & State Testing (18:00-20:00)
-- [ ] Test perplexity on known sentences (should be low)
-- [ ] Test perplexity on jumbled sentences (should be high)
-- [ ] Verify state persistence across 4096+ tokens
-- [ ] Test state reset functionality
-- [ ] Document findings in docs/day2_validation.md
+- [x] Test perplexity on known sentences (should be low)
+- [x] Test perplexity on jumbled sentences (should be high)
+- [x] Verify state persistence across 4096+ tokens
+- [x] Test state reset functionality
+- [x] Document findings in docs/day2_validation.md
 
 ---
 
