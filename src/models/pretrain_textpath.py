@@ -160,7 +160,7 @@ def main():
     output_dir.mkdir(exist_ok=True)
     
     # Device
-    device = torch.device('mps' if torch.backends.mps.is_available() else 'cpu')
+    device = torch.device('mps' if torch.backends.mps.is_available() else 'cuda' if torch.cuda.is_available() else 'cpu')
     print(f"\nDevice: {device}")
     
     # Load tokenizer
@@ -202,7 +202,7 @@ def main():
         'chunk_size': 512,
         'stride': 256,
         'batch_size': 4,  # Small batch for M2 Mac
-        'epochs': 2,
+        'epochs': 5,
         'model_config': config.__dict__,
     }
     

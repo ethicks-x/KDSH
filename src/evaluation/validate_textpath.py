@@ -171,7 +171,7 @@ def main():
     tokenizer_path = ROOT / "models" / "custom_tokenizer.json"
     
     # Device
-    device = torch.device('mps' if torch.backends.mps.is_available() else 'cpu')
+    device = torch.device('mps' if torch.backends.mps.is_available() else 'cuda' if torch.cuda.is_available() else 'cpu')
     print(f"Device: {device}")
     
     # Load tokenizer
