@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[2]
 BDH_EDU_DIR = ROOT / "repos" / "bdh_educational"
 sys.path.append(str(BDH_EDU_DIR))
 
-from bdh import BDH  # adjust if class is named differently
+from bdh import BDH, BDHParameters  # adjust if class is named differently
 
 def main():
     print("=" * 60)
@@ -17,15 +17,21 @@ def main():
     print("=" * 60)
 
     # ---- 1. Initialize a small BDH model ----
-    config = {
-        "n_neurons": 256,   # small for inspection
-        "d_model": 64,
-        "n_layers": 2,
-        # other params as required by BDH constructor
-    }
+    vocab_size = 1000
+    params = BDHParameters(
+        V=vocab_size,       # vocabulary size
+        T=32,               # sequence length
+        H=4,                # heads
+        N=256,              # neurons
+        D=64,               # latent dimension
+        L=2,                # layers
+        dropout=0.0,        # no dropout for inspection
+        use_rope=False,     # RoPE (rotary positional encoding)
+        use_abs_pos=True    # absolute positional encoding
+    )
 
     try:
-        model = BDH(**config)
+        model = BDH(params)
     except TypeError as e:
         print(" Error constructing BDH with guessed config.")
         print("   Open repos/bdh_educational/bdh.py and check __init__ signature.")
@@ -43,7 +49,6 @@ def main():
     # ---- 2. Forward pass with dummy input ----
     batch_size = 1
     seq_len = 32
-    vocab_size = 1000
 
     x = torch.randint(0, vocab_size, (batch_size, seq_len))
     print("\nInput shape:", x.shape)
