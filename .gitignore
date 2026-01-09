@@ -216,5 +216,9 @@ logs/
 models/
 outputs/
 __pycache__/
+<<<<<<< HEAD
 *.pth
 >>>>>>> 5ba2aae (Add README and .gitignore)
+=======
+*.pth
+>>>>>>> 08f6031 (Sync: update .gitignore and submodule state)
